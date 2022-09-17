@@ -1,0 +1,46 @@
+internal class Program
+    {
+        static void Main(string[] args)
+        {           
+          
+
+            while (true)
+            {
+                Console.Write("Enter anumber: ");
+                string b = Console.ReadLine();
+
+                int a = int.Parse(b);
+                int s = 0;
+
+                while (a != 1)
+                {                        
+               
+                    if (a % 2 == 0)               
+                    {
+                  
+                        a = a / 2;
+                  
+                        s++;
+               
+                    }
+               
+                    else               
+                    {
+                  
+                        a = a * 3 + 1;
+                  
+                        s++;
+
+                    }
+
+                    
+
+                }
+                Console.WriteLine(a);
+                Console.WriteLine("počet výpočtů: " + s);
+
+            }
+                                              
+
+        }
+    }
