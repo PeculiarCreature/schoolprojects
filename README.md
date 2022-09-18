@@ -5,9 +5,12 @@ file Collatzův problém
    
 file Collatzův problém rekurzí 
    - řešen rekurzí (je to delší, ale zábavnější)
-   - ze zadaného začátečního a posledního čísla projede je a všechna čísla mezi nimi, napíše u nich výsledek a počet iterací a nakonec napíše číslo s největším počtem iterací a kolik jich je 
+   - projde (spočítá) zadané začáteční a poslední číslo a všechna čísla mezi nimi, napíše u nich výsledek a počet iterací a nakonec napíše číslo s největším   počtem iterací a kolik jich je 
+   - spočítat čísla od 1 do 100 000 000 mu trvalo 4 104 800,8724 milisekund, zhruba 68 min.
 
 file Collatzův problém vylepšen 
    - vylepšený první program
    - dělá v podstatě to stejné jako Collatzův problém rekurzí, jen ne rekurzí
-   - spočítat čísla od 1 do 1 000 000 tomu trvalo 37 479, 654 milisekund (zhruba 37 sekund)
+   - spočítat čísla od 1 do 100 000 000 mu trvalo 2 726 934,0469 milisekund, zhruba 45 min.
+   
+ Od 1 do 100 000 000 je číslo s největším počtem iterací číslo 63 728 127 s 949 iteracemi
