@@ -1,0 +1,45 @@
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+            long n = 1;
+            long c = 0;
+            long ln = 0;
+            long nn = 0;
+
+            Console.Write("Zadejte číslo:");
+
+            string r = Console.ReadLine();
+            long rr = long.Parse(r);
+
+            while (true)
+            {
+                n++;
+                c = 0;
+                Console.WriteLine(n + ":" + f(n) + ":" + c);
+                if (c > ln)
+                {
+                    nn = n;
+                    ln = c;
+                }
+                if (n >= rr) 
+                {
+                    Console.WriteLine("Číslo s nejvíce iteracema: " + nn + " - " + ln + " Iterací.");
+                    break;
+                }
+            }
+
+            long f(long i)
+            {
+                //Console.Write(i + "=>");
+                if (i > 1)
+                {
+                    if (i % 2 == 0) i /= 2;
+                    else i = i * 3 + 1;
+                    c++;
+                    return f(i);
+                }
+                else return i;
+            }
+        }
+    }
