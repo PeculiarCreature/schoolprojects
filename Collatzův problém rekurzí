@@ -7,10 +7,13 @@ internal class Program
             long ln = 0;
             long nn = 0;
 
-            Console.Write("Zadejte číslo:");
 
-            string r = Console.ReadLine();
-            long rr = long.Parse(r);
+            Console.Write("Zadejte začáteční číslo:");
+            n = long.Parse(Console.ReadLine());
+            Console.Write("Zadejte poslední číslo:");
+            long r = long.Parse(Console.ReadLine());
+
+            DateTime start = DateTime.Now; //měření času procesu záčátek
 
             while (true)
             {
@@ -22,9 +25,9 @@ internal class Program
                     nn = n;
                     ln = c;
                 }
-                if (n >= rr) 
+                if (n >= r) 
                 {
-                    Console.WriteLine("Číslo s nejvíce iteracema: " + nn + " - " + ln + " Iterací.");
+                    Console.WriteLine("Číslo s nejvíce iteracemi: " + nn + " - " + ln + " Iterací.");
                     break;
                 }
             }
@@ -41,5 +44,9 @@ internal class Program
                 }
                 else return i;
             }
-        }
+
+            DateTime end = DateTime.Now; //měření času procesu konec
+            TimeSpan ts = (end - start);
+            Console.WriteLine("Elapsed Time is {0} ms", ts.TotalMilliseconds);
+        }        
     }
