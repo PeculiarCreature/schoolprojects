@@ -1,47 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prosimchciumritjauznatonemam
+namespace Collatz_ještě_lepší
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            Boolean b = false;
-            List<char> ca = new List<char>();
-            List<int> ia = new List<int>();
 
-            while (true)
-            {
-                string s = Console.ReadLine();
-                foreach (char c in s)
+            
+            Console.Write("Zadejte začáteční číslo: ");
+            string b = Console.ReadLine();
+
+            Console.Write("Zadejte koncové číslo: ");
+            string c = Console.ReadLine();
+
+            long cc = long.Parse(c);
+            long f = long.Parse(b);
+            long s = 0;
+            long a = f;
+            long i = 0;
+            long u = 0;
+
+            DateTime start = DateTime.Now; //měření času procesu záčátek
+            while (f <= cc)
+          
+            {               
+                a = f;
+                s = 0;
+                while (a > 1)
                 {
-                    for (int i = 0; i < ca.Count; i++)
+                    if (a % 2 == 0)
                     {
-                        if (ca[i] == c)
-                        {
-                            ia[i]++;
-                            b = true;
-                        }
+                        a /= 2;                        
                     }
-                    if (!b)
+
+                    else
                     {
-                        ca.Add(c);
-                        ia.Add(0);
-                        b = false;
+                        a = a * 3 + 1;
                     }
-                    Console.WriteLine(c);
+                    s++;
                 }
-                foreach (char c in ca)
+                
+                if (s > i)
                 {
-                    Console.WriteLine(c);
+                    i = s;
+                    u = f;
                 }
-                ca.Clear();
-                ia.Clear();
+                
+                Console.WriteLine(f + " ... " + a + ", počet iterací: " + s);
+                f++;
+
             }
+            Console.WriteLine("číslo s největším počtem iterací: " + u + ", jejich počet: " + i);
+            DateTime end = DateTime.Now; //měření času procesu konec
+            TimeSpan ts = (end - start);
+            Console.WriteLine("Elapsed Time is {0} ms", ts.TotalMilliseconds);
+
+
         }
     }
 }
