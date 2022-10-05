@@ -1,63 +1,68 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lepší_Collatz
+namespace Collatz_ještě_lepší
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            long n = 1;
-            long c = 0;
-            long ln = 0;
-            long nn = 0;
 
+            
+            Console.Write("Zadejte začáteční číslo: ");
+            string b = Console.ReadLine();
 
-            Console.Write("Zadejte začáteční číslo:");
-            n = long.Parse(Console.ReadLine());
-            Console.Write("Zadejte poslední číslo:");
-            long r = long.Parse(Console.ReadLine());
+            Console.Write("Zadejte koncové číslo: ");
+            string c = Console.ReadLine();
+
+            long cc = long.Parse(c);
+            long f = long.Parse(b);
+            long s = 0;
+            long a = f;
+            long i = 0;
+            long u = 0;
 
             DateTime start = DateTime.Now; //měření času procesu záčátek
+            while (f <= cc)
+          
+            {               
+                a = f;
+                s = 0;
+                while (a > 1)
+                {
+                    if (a % 2 == 0)
+                    {
+                        a /= 2;                        
+                    }
 
-            while (true)
-            {
-                n++;
-                c = 0;
-                Console.WriteLine(n + ":" + f(n) + ":" + c);
-                if (c > ln)
-                {
-                    nn = n;
-                    ln = c;
+                    else
+                    {
+                        a = a * 3 + 1;
+                    }
+                    s++;
                 }
-                if (n >= r) 
+                
+                if (s > i)
                 {
-                    Console.WriteLine("Číslo s nejvíce iteracema: " + nn + " - " + ln + " Iterací.");
-                    break;
+                    i = s;
+                    u = f;
                 }
+                
+                Console.WriteLine(f + " ... " + a + ", počet iterací: " + s);
+                f++;
+
             }
-
-            long f(long i)
-            {
-                //Console.Write(i + "=>");
-                if (i > 1)
-                {
-                    if (i % 2 == 0) i /= 2;
-                    else i = i * 3 + 1;
-                    c++;
-                    return f(i);
-                }
-                else return i;
-            }
-
+            Console.WriteLine("číslo s největším počtem iterací: " + u + ", jejich počet: " + i);
             DateTime end = DateTime.Now; //měření času procesu konec
             TimeSpan ts = (end - start);
             Console.WriteLine("Elapsed Time is {0} ms", ts.TotalMilliseconds);
-        }        
-    }
 
+
+        }
+    }
 }
