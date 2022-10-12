@@ -7,13 +7,22 @@ using System.Threading.Tasks;
 namespace CloveceNezlobSe
 {
     public class Figurka
-    {
-        Policko policko;
+    {        
+            public string Oznaceni { get; init; }
 
-        public bool JeVDomecku()
-        {
-            return policko is Domecek;
-        }
+            public Figurka(string oznaceni)
 
+
+
+            {
+                this.Oznaceni = oznaceni;
+            }
+
+            public void Vypis()
+            {
+                Console.Write(this.Oznaceni);
+            }        
     }
+    
+    
 }

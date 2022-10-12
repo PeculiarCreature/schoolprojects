@@ -16,7 +16,10 @@ namespace CloveceNezlobSe
         }
         public int Hod()
         {
-            return Random.Shared.Next(1, 6);
+            var hod = Random.Shared.Next(1, PocetSten);
+            Console.WriteLine($"Kostka hodila {hod}.");
+
+            return hod;
         }
 
     }

@@ -8,7 +8,7 @@ namespace CloveceNezlobSe
 {
     public class VicenasobnePolicko: Policko
     {
-        List<Figurka> figurky = new();
+        protected List<Figurka> figurky = new();
 
         public override void PolozFigurku(Figurka figurka)
         {
@@ -18,6 +18,31 @@ namespace CloveceNezlobSe
         public override bool JeObsazeno()
         {
             return false;
+        }
+
+        public override bool JeTamFigurka(Figurka figurka)
+        {
+            return figurky.Contains(figurka);
+        }
+
+        public override Figurka DejFigurkuKVyhozeni()
+        {
+            return null;
+        }
+
+        public override void ZvedniFigurku(Figurka figurka)
+        {
+            figurky.Remove(figurka);
+        }
+
+        public override void Vypis()
+        {
+            Console.Write("[");
+            foreach (var figurka in figurky)
+            {
+                figurka.Vypis();
+            }
+            Console.Write("]");
         }
     }
 }

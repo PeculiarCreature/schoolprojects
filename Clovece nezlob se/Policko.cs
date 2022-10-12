@@ -11,5 +11,13 @@ namespace CloveceNezlobSe
         public abstract void PolozFigurku(Figurka figurka);
 
         public abstract bool JeObsazeno();
+
+        public abstract bool JeTamFigurka(Figurka figurka);
+
+        public abstract Figurka DejFigurkuKVyhozeni();
+
+        public abstract void ZvedniFigurku(Figurka figurka);
+
+        public abstract void Vypis();
     }
 }

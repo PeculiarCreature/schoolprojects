@@ -22,8 +22,36 @@ namespace CloveceNezlobSe
 
         public override bool JeObsazeno()
         {
-            return (this.figurka != null); // nebo můžu použít (this.Figurka is not null) či (this.Figurka is Figurka)
+            return (this.figurka != null); // (this.Figurka is not null)  (this.Figurka is Figurka)
         }
 
+        public override bool JeTamFigurka(Figurka figurka)
+        {
+            return (this.figurka == figurka);
+        }
+
+        public override Figurka DejFigurkuKVyhozeni()
+        {
+            return figurka;
+        }
+
+        public override void ZvedniFigurku(Figurka figurka)
+        {
+            if (this.figurka != figurka)
+            {
+                throw new InvalidOperationException("Figurka na tomto políčku není.");
+            }
+            this.figurka = null;
+        }
+
+        public override void Vypis()
+        {
+            Console.Write("[");
+            if (figurka != null)
+            {
+                figurka.Vypis();
+            }
+            Console.Write("]");
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace CloveceNezlobSe
     {
         public string Jmeno { get; init; }
 
-        List<Figurka> figurky;
+        public List<Figurka> Figurky { get; } = new();
 
         public Hrac(string jmeno)
         {
@@ -19,12 +19,7 @@ namespace CloveceNezlobSe
 
         public void PridejFigurku(Figurka figurka)
         {
-            figurky.Add(figurka);
-        }
-
-        public bool MaFigurkyVDomecku()
-        {
-            return figurky.All(figurka => figurka.JeVDomecku());
+            Figurky.Add(figurka);
         }
     }
 }
