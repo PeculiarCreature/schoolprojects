@@ -19,8 +19,9 @@ class Program
 
     static void Main(string[] args)
     {
-        /* new int arr y = 1,2,3,4,5,6,7,8,9,10
-    // new int arr x = 1,2,3,4,5,6,7,8,9,10
+      /* JEN MOJE POZNÁMKY
+       new int arr y = 1,2,3,4,5,6,7,8,9,10
+       new int arr x = 1,2,3,4,5,6,7,8,9,10
        new int arr xx
        new int arr yx
         new int n = 10
