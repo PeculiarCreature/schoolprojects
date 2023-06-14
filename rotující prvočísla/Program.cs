@@ -43,14 +43,8 @@ class Program
             }
         }
 
-        if (n >= circPrime.Count)
-        {
-            Console.WriteLine("Rotující prvočíslo je větší než 2 000 000.");
-        }
-        else
-        {
-            Console.WriteLine(n + "=>" + circPrime[n - 1]);
-        }
+        Console.WriteLine(n + "=>" + circPrime[n - 1]);
+        
 
 
     }
