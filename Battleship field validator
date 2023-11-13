@@ -1,0 +1,76 @@
+namespace Solution {
+  using System;
+  using System.Linq;
+  public class BattleshipField {
+    public static bool ValidateBattlefield(int[,] field) {
+      // Write your magic here
+      int targetNumber = 1;
+      bool ba = false;
+      int count = 2;
+      
+
+      int counts = field.Cast<int>().Count(x => x == targetNumber);
+      
+      if (counts != 20)
+      {
+        return false;
+      }
+      
+      for (int x = 0; x < field.GetLength(0); x++)
+            {
+                for (int y = 0; y < field.GetLength(1); y++)
+                {
+                    if (field[x, y] == 1)
+                    {
+                      
+                      if(x<9 && y<9)if((field[x + 1, y + 1]) == 1)return false;
+                      if(x<9 && y>0)if((field[x + 1, y - 1]) == 1)return false;
+                      if(x>0 && y<9)if((field[x - 1, y + 1]) == 1)return false;
+                      if(x<0 && y>0)if((field[x - 1, y - 1]) == 1)return false;
+                      
+                      
+                      
+                      
+                      int a = 0, b = 0, c = 0, d = 0;
+                        if (x < 9) a = field[x + 1, y];
+                        if (x > 0) b = field[x - 1, y];
+                        if (y < 9) c = field[x, y + 1];
+                        if (y > 0) d = field[x, y - 1];
+                        field[x, y] = Math.Max(Math.Max(a, b), Math.Max(c, d));
+
+
+                        if (field[x, y] <= 1)
+                        {
+                            if (ba) count--;
+
+                            field[x, y] = count;
+                            ba = true;
+                            count++;
+                        }
+                    }
+                    else ba = false;
+
+                }
+                ba = false;
+            }
+            
+            int four=1, rf=0;
+            int three=2, rt=0;
+            int two=3, rw=0;
+            int one=4, ro=0;
+            
+            int[] result = field.Cast<int>().Select(c => c).ToArray();
+            var groups = result.GroupBy(v => v);
+            foreach(var group in groups){
+                if(group.Key !=0 && group.Count() > 4)return false;
+                if(group.Key !=0 && group.Count() == 4)rf++;
+                if(group.Key !=0 && group.Count() == 3)rt++;
+                if(group.Key !=0 && group.Count() == 2)rw++;
+                if(group.Key !=0 && group.Count() == 1)ro++;
+            }
+            if(rf!=four || rt!=three || rw!=two || ro!=one)return false;
+      
+            return true;
+    }
+  }
+}
