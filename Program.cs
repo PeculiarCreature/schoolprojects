@@ -111,8 +111,6 @@ Game 99: 11 green, 4 red, 12 blue; 9 red, 4 blue; 20 green, 6 blue
 Game 100: 12 red, 9 green; 12 red; 9 red, 3 green; 8 red, 4 blue, 4 green; 8 blue, 11 red, 2 green";
 
 
-            string pattern = @"(?<=\bGame \d+:.*?)\d+";
-
             string[] lines = input.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             int i = 0;
