@@ -1,0 +1,65 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {       
+
+        List<int> circPrime = new List<int>();
+
+        for (int i = 2; i <= 1000000; i++)
+        {
+           
+
+            if (isPrime(i) && isCircularPrime(i))
+            {
+                circPrime.Add(i);
+            }
+
+            if (circPrime[circPrime.Count - 1] > 1000000)
+            {
+                break;
+            }
+        }
+        int final = circPrime.Count;
+        Console.WriteLine("Počet rotujících prvočísel pod 1 milion: " + final);
+        circPrime.ForEach(i => Console.Write("{0}\t", i));
+    }
+
+    public static bool isPrime(int num)
+    {
+        if (num < 2)
+        {
+            return false;
+        }
+
+        for (int j = 2; j <= Math.Sqrt(num); j++)
+        {
+            if (num % j == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static bool isCircularPrime(int num)
+    {
+        string numStr = num.ToString();
+        int length = numStr.Length;
+
+        for (int i = 0; i < length; i++)
+        {
+            if (!isPrime(int.Parse(numStr)))
+            {
+                return false;
+            }
+            
+            numStr = numStr.Substring(1) + numStr[0];
+        }
+
+        return true;
+    }
+}
